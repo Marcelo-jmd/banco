@@ -62,4 +62,20 @@ public class UsuarioServicio {
         return encriptar(password);
     }
 
+    public boolean cambiarPassword(String usuario, String actual, String nueva) {
+        String hashActual = encriptar(actual);
+        String hashNueva = encriptar(nueva);
+        return dao.actualizarPassword(usuario, hashActual, hashNueva);
+    }
+
+    public boolean restablecerPassword(String usuarioOEmail, String nuevaPassword) {
+        String hash = encriptar(nuevaPassword);
+        return dao.actualizarPassword(usuarioOEmail, hash);
+    }
+
+    public boolean actualizarPassword(String usuario, String nuevaPassword) {
+        String hash = encriptar(nuevaPassword); // se usa el mismo método que en registro
+        return dao.actualizarPassword(usuario, hash);
+    }
+
 }

@@ -82,5 +82,37 @@ public class UsuarioDAO {
             e.printStackTrace();
             return false;
         }
+
     }
+
+    public boolean actualizarPassword(String usuario, String actualHash, String nuevaHash) {
+        try (Connection con = getConnection()) {
+            String sql = "UPDATE usuarios SET password=? WHERE usuario=? AND password=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nuevaHash);
+            ps.setString(2, usuario);
+            ps.setString(3, actualHash);
+
+            int filas = ps.executeUpdate();
+            return filas > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean actualizarPassword(String usuario, String nuevaPasswordHash) {
+        try (Connection con = getConnection()) {
+            String sql = "UPDATE usuarios SET password=? WHERE usuario=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nuevaPasswordHash);
+            ps.setString(2, usuario);
+            int filas = ps.executeUpdate();
+            return filas > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

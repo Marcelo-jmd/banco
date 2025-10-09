@@ -3,12 +3,8 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Login Banco</title>
-
-        <!-- Bootstrap 5 -->
+        <title>Restablecer Contraseña</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Íconos Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
         <style>
             body {
@@ -19,7 +15,6 @@
                 height: 100vh;
                 font-family: "Segoe UI", sans-serif;
             }
-
             .card {
                 background-color: #fff;
                 border: none;
@@ -27,11 +22,6 @@
                 box-shadow: 0 0 20px rgba(255, 215, 0, 0.25); /* sombra dorada */
                 width: 24rem;
                 transition: all 0.3s ease;
-            }
-
-            .card:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
             }
 
             h3 {
@@ -44,12 +34,7 @@
                 color: #5A0000;
             }
 
-            .form-control:focus {
-                border-color: #FFD700;
-                box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
-            }
-
-            .btn-primary {
+            .btn-success {
                 background: linear-gradient(90deg, #B22222, #8B0000);
                 border: none;
                 font-weight: 600;
@@ -58,19 +43,16 @@
                 transition: all 0.3s ease;
             }
 
-            .btn-primary:hover {
+            .btn-success:hover {
                 background: linear-gradient(90deg, #8B0000, #5A0000);
                 color: #fff;
                 box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
             }
 
-            /* Texto inferior */
-            small {
-                color: #5A0000;
-                font-weight: 500;
+            .alert {
+                font-size: 0.9rem;
             }
 
-            /* Enlace visible y elegante */
             a {
                 color: #DAA520; /* dorado cálido */
                 font-weight: 700;
@@ -84,42 +66,47 @@
             }
         </style>
     </head>
+    <body class="d-flex align-items-center justify-content-center vh-100">
 
-    <body>
+        <!-- Tarjeta centrada -->
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4">Restablecer Contraseña</h3>
 
-        <div class="card p-4 shadow-lg">
-            <div class="text-center mb-3">
-                <i class="bi bi-bank2" style="font-size: 2.5rem; color: #B22222;"></i>
+            <!-- 📢 Mensaje dinámico -->
+            <%
+                String mensaje = (String) request.getAttribute("mensaje");
+                String tipo = (String) request.getAttribute("tipo");
+                if (mensaje != null) {
+            %>
+            <div class="alert alert-<%= tipo%> alert-dismissible fade show" role="alert">
+                <%= mensaje%>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
             </div>
-            <h3 class="text-center mb-4">Acceso Bancario</h3>
+            <% }%>
 
-            <form action="LoginServlet" method="post">
+            <!-- Formulario -->
+            <form action="RecuperarContrasenaServlet" method="post">
                 <div class="mb-3">
                     <label class="form-label">Usuario</label>
                     <input type="text" name="usuario" class="form-control" placeholder="Ingresa tu usuario" required>
                 </div>
+
                 <div class="mb-3">
-                    <label class="form-label">Contraseña</label>
-                    <input type="password" name="password" class="form-control" placeholder="********" required>
+                    <label class="form-label">Nueva Contraseña</label>
+                    <input type="password" name="password" class="form-control" placeholder="Mínimo 8 caracteres" minlength="8" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+
+                <button type="submit" class="btn btn-success w-100 mt-2">Actualizar Contraseña</button>
             </form>
 
+            <!-- Enlace inferior -->
             <div class="text-center mt-3">
-                <small>
-                    ¿Olvidaste tu contraseña?
-                    <a href="recuperarContrasena.jsp" class="text-decoration-none text-danger">
-                        Cambiarla aquí
-                    </a>
-                </small>
-            </div>
-
-            <div class="text-center mt-2">
-                <small>¿No tienes cuenta? 
-                    <a href="registro.jsp" class="text-decoration-none">Regístrate aquí</a>
+                <small>¿Recordaste tu contraseña?
+                    <a href="login.jsp" class="text-decoration-none">Inicia sesión</a>
                 </small>
             </div>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
