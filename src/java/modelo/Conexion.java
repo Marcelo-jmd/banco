@@ -13,7 +13,7 @@ public class Conexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("✅ Conexión exitosa a MySQL, todo good");
+            System.out.println("✅ Conexión exitosa a MySQL");
         } catch (Exception e) {
             System.out.println("❌ Error de conexión: " + e.getMessage());
         }
