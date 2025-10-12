@@ -199,7 +199,7 @@
             <a href="deposito.jsp" target="contenido" class="menu-link">
                 <i class="bi bi-cash-coin"></i> <span>Depósito</span>
             </a>
-            <a href="consultaCuentas.jsp" target="contenido" class="menu-link">
+            <a href="ConsultaCuentasServlet" target="contenido" class="menu-link">
                 <i class="bi bi-search"></i> <span>Consultar Cuentas</span>
             </a>
             <a href="movimientos.jsp" target="contenido" class="menu-link">
