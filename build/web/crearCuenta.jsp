@@ -120,7 +120,7 @@
                     <option value="">-- Selecciona un tipo --</option>
                     <option value="AH">Cuenta de Ahorro</option>
                     <option value="CO">Cuenta Corriente</option>
-                    <option value="PL">Cuenta a Plazo Fijo</option>
+                    <option value="PF">Cuenta a Plazo Fijo</option>
                 </select>
             </div>
 

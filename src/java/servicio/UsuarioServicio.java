@@ -16,7 +16,7 @@ public class UsuarioServicio {
     /**
      * Método privado que encripta contraseñas usando SHA-256
      */
-    private String encriptar(String password) {
+    public String encriptar(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hash = md.digest(password.getBytes(StandardCharsets.UTF_8));
