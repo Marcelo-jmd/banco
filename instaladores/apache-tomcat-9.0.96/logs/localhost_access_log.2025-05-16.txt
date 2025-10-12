@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [16/May/2025:19:22:15 -0500] "GET /ControlerCliente?Op=Listar HTTP/1.1" 500 2502
+127.0.0.1 - - [16/May/2025:19:52:07 -0500] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - Steven [16/May/2025:19:52:07 -0500] "GET /manager/text/ HTTP/1.1" 200 44
+127.0.0.1 - - [16/May/2025:19:52:07 -0500] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - Steven [16/May/2025:19:52:07 -0500] "GET /manager/text/ HTTP/1.1" 200 44
+127.0.0.1 - - [16/May/2025:19:52:07 -0500] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - Steven [16/May/2025:19:52:07 -0500] "GET /manager/text/ HTTP/1.1" 200 44
+127.0.0.1 - Steven [16/May/2025:19:52:07 -0500] "GET /manager/text/list HTTP/1.1" 200 337
+127.0.0.1 - Steven [16/May/2025:19:52:11 -0500] "GET /manager/text/reload?path=/ HTTP/1.1" 200 70
+127.0.0.1 - - [16/May/2025:19:52:11 -0500] "HEAD /netbeans-tomcat-status-test HTTP/1.1" 404 -
+127.0.0.1 - Steven [16/May/2025:19:52:11 -0500] "GET /manager/text/ HTTP/1.1" 200 44
